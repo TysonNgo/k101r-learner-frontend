@@ -14,16 +14,17 @@ router.get('/', (req, res) => {
     res.render('index');
 });
 
-router.get('/dictation', (req, res) => {
-	res.render('dictation/index');
-});
-
-router.get('/translate', (req, res) => {
-	res.render('translate');
-});
-
-router.get('/grammar', (req, res) => {
-	res.render('grammar');
+router.get('/exercise/:exercise', (req, res) => {
+	switch (req.params.exercise.toLowerCase()){
+		case 'dictation':
+		case 'translate':
+		case 'grammar': break;
+		default:
+			res.status(400).send('Not found');
+	}
+	res.render('exercise/index', {
+		category:req.params.exercise
+	});
 });
 
 app.use('/', router);

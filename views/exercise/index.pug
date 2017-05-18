@@ -1,25 +1,22 @@
+- var theCategory = category[0].toUpperCase()+category.slice(1)
 doctype html
 html
 	head
-		title KOREA 101R
+		title KOREA 101R - #{theCategory}
 		include ../base/head.pug
 	body
 		include ../base/nav.pug
 		
 		div.container.page-container
-			h4 Dictation
-			p some text
+			h4 #{theCategory}
+			p #{description}
 			div.row
-				div.col.s12.l8.offset-l2
+				div.col.s12.l10.offset-l1
 					ul.collection.with-header
 						li.collection-header
 							h5 Exercises
 						a(href="/dictation").collection-item 
-							li Dictation
-						a(href="/translate").collection-item 
-							li Translate
-						a(href="/grammar").collection-item 
-							li Grammar
+							li 1
 
 		include ../base/footer.pug
 		include ../base/js.pug
