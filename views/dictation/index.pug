@@ -7,8 +7,19 @@ html
 		include ../base/nav.pug
 		
 		div.container.page-container
-			h4 some header
+			h4 Dictation
 			p some text
+			div.row
+				div.col.s12.l8.offset-l2
+					ul.collection.with-header
+						li.collection-header
+							h5 Exercises
+						a(href="/dictation").collection-item 
+							li Dictation
+						a(href="/translate").collection-item 
+							li Translate
+						a(href="/grammar").collection-item 
+							li Grammar
 
 		include ../base/footer.pug
 		include ../base/js.pug
