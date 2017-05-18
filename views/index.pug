@@ -2,9 +2,9 @@ doctype html
 html
 	head
 		title KOREA 101R
-		include head.pug
+		include base/head.pug
 	body
-		include nav.pug
+		include base/nav.pug
 		
 		div.container.page-container
 			h4 Introductory Korean Language Course Aid
@@ -18,11 +18,11 @@ html
 					ul.collection.with-header
 						li.collection-header
 							h5 Exercises
-						a(href="#").collection-item 
+						a(href="/dictation").collection-item 
 							li Dictation
-						a(href="#").collection-item 
+						a(href="/translate").collection-item 
 							li Translate
-						a(href="#").collection-item 
+						a(href="/grammar").collection-item 
 							li Grammar
 
 			div.divider
@@ -42,8 +42,5 @@ html
 							li 3
 
 		
-		footer.page-footer.orange
-			div.footer-copyright
-				div.container
-					a.black-text.right(href="https://github.com/TysonNgo") Created by Tyson Ngo
-		include js.pug
+		include base/footer.pug
+		include base/js.pug
