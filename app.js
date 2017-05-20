@@ -27,6 +27,15 @@ router.get('/exercise/:exercise', (req, res) => {
 	});
 });
 
+router.get('/notes/:id', (req, res) => {
+	switch(req.params.id){
+		case '1':
+			res.render('mynotes/pronunication');
+		default:
+			res.status(400).send('Not found');
+	}
+});
+
 app.use('/', router);
 app.listen(port);
 

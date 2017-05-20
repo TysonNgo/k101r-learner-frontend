@@ -164,6 +164,9 @@ footer.page-footer{
 .play:hover{
 	opacity: 1;
 }
+.play:focus{
+	background: none;
+}
 .play-icon, .stop-icon{
 	position: absolute;
 	margin: auto;

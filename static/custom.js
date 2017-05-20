@@ -2,6 +2,16 @@ var keyboard = new Keyboard();
 var krSpeech = new SpeechSynthesisUtterance();
 krSpeech.lang = "ko-KR";
 
+
+krSpeech.onstart = function(){
+	$(".play-icon").toggleClass("stop-icon");
+};
+
+
+krSpeech.onend = function(){
+	$(".play-icon").toggleClass("stop-icon");
+};
+
 var hangulNames = {
 	ㄱ: "기역",
 	ㄴ: "니은",
@@ -20,36 +30,12 @@ var hangulNames = {
 };
 
 function speak(word){
-	var a = [
-		"가구",
-		"노란",
-		"도장",
-		"시골",
-		"반찬",
-		"어름",
-		"전차",
-		"아침",
-		"저녁",
-		"병원",
-		"골목",
-		"라면",
-		"만두",
-		"안경",
-		"파전",
-		"향기",
-		"달력",
-		"신문",
-		"감자",
-		"풍속"
-	]
-	word = a[Math.round(19*Math.random())];
-	$("#deletethis").text(word);
 	krSpeech.text = word;
-	//$("#speaker").toggleClass("stop-icon");
-	$("#textbox").val('');
-	$("#textbox").focus();
-	window.speechSynthesis.speak(krSpeech);
-	window.speechSynthesis.speak(krSpeech);
+	if (window.speechSynthesis.speaking){
+		window.speechSynthesis.cancel();
+		return;
+	}
+	console.log();
 	window.speechSynthesis.speak(krSpeech);
 };
 

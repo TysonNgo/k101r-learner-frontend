@@ -1,0 +1,16 @@
+doctype html
+html
+	head
+		title some title
+		include ../base/head.pug
+	body
+		include ../base/nav.pug
+		
+		div.container.page-container
+			h4 Lesson 1
+			p some text
+			button.play(onClick="speak('보고싶다');")
+				div#speaker.play-icon
+
+		include ../base/footer.pug
+		include ../base/js.pug
