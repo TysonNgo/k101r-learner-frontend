@@ -7,10 +7,238 @@ html
 		include ../base/nav.pug
 		
 		div.container.page-container
-			h4 Lesson 1
-			p some text
-			button.play(onClick="speak('보고싶다');")
-				div#speaker.play-icon
+			h4 Vowels and Consonants
+			p The Korean alphabet (hangul) contains 21 vowels and 19 consonants. Here are tables for the Korean consonant and vowels:
+			div.row
+				div.col.s12.l6
+					table.centered
+						thead
+							tr
+								th Vowel
+								th Pronunciation ▶️
+								th Example
+						tbody
+							tr
+								td ㅏ
+								td.speak(onClick="speak('ㅏㅏ');") a
+								td f#[strong a]ther, #[strong ah]
+							tr
+								td ㅓ
+								td.speak(onClick="speak('ㅓㅓ');") eo
+								td m#[strong u]d, g#[strong u]n
+							tr
+								td ㅗ
+								td.speak(onClick="speak('ㅗㅗ');") o
+								td t#[strong o]e, #[strong oh]
+							tr
+								td ㅜ
+								td.speak(onClick="speak('ㅜㅜ');") u
+								td t#[strong oo]l, sh#[strong oo]t
+							tr
+								td ㅡ
+								td.speak(onClick="speak('ㅡㅡ');") eu
+								td r#[strong oo]k, p#[strong u]t
+							tr
+								td ㅣ
+								td.speak(onClick="speak('ㅣㅣ');") i
+								td b#[strong ee], spaghett#[strong i]
+							tr
+								td ㅑ
+								td.speak(onClick="speak('ㅑㅏ');") ya
+								td #[strong ya]cht, jambala#[strong ya]
+							tr
+								td ㅕ
+								td.speak(onClick="speak('ㅕㅓ');") yeo
+								td y#[strong ou]ng
+							tr
+								td ㅛ
+								td.speak(onClick="speak('ㅛㅗ');") yo
+								td #[strong yo], embr#[strong yo]
+							tr
+								td ㅠ
+								td.speak(onClick="speak('ㅠㅜ');") yu
+								td #[strong you], f#[strong u]tile
+							tr
+								td ㅔ
+								td.speak(onClick="speak('ㅔㅔ');") e
+								td #[strong e]gg, b#[strong e]t
+							tr
+								td ㅐ
+								td.speak(onClick="speak('ㅐㅐ');") ae
+								td #[strong a]t, b#[strong a]nk
+							tr
+								td ㅖ
+								td.speak(onClick="speak('ㅖㅔ');") ye
+								td #[strong ye]s, #[strong ye]ti
+							tr
+								td ㅒ
+								td.speak(onClick="speak('ㅒㅐ');") yae
+								td y#[strong a]nk
+							tr
+								td ㅘ
+								td.speak(onClick="speak('ㅘㅏ');") wa
+								td #[strong wa]tt, #[strong wa]ter
+							tr
+								td ㅝ
+								td.speak(onClick="speak('ㅝ');") wo
+								td #[strong wo]nder
+							tr
+								td ㅚ
+								td.speak(onClick="speak('ㅚ');") eo
+								td #[strong wa]y
+							tr
+								td ㅟ
+								td.speak(onClick="speak('ㅟㅣ');") wi
+								td #[strong we]
+							tr
+								td ㅙ
+								td.speak(onClick="speak('ㅙ');") wae
+								td #[strong wa]gon, #[strong wa]iver
+							tr
+								td ㅞ
+								td.speak(onClick="speak('ㅞ');") we
+								td #[strong we]ll, #[strong We]ndy
+							tr
+								td ㅢ
+								td.speak(onClick="speak('ㅢ');") ui
+								td b#[strong uoy]
+				div.col.s12.l6
+					table.centered
+						thead
+							tr
+								th Consonant#[a(href="#note1") *]
+								th Initial 
+								th Final #[a(href="#note2") **]
+								th Example
+						tbody
+							tr
+								td ㅂ
+								td.speak(onClick="speak('브ㅡ');") b
+								td.speak(onClick="speak('읍');") p
+								td #[strong b]oy/po#[strong p]
+							tr
+								td ㅃ
+								td.speak(onClick="speak('쁘ㅡ');") pp
+								td
+								td s#[strong p]y
+							tr
+								td ㅈ
+								td.speak(onClick="speak('즈ㅡ');") j
+								td.speak(onClick="speak('읒');") t
+								td #[strong j]et/cu#[strong t]
+							tr
+								td ㅉ
+								td.speak(onClick="speak('쯔ㅡ');") jj
+								td
+								td cu#[strong ts]
+							tr
+								td ㄷ
+								td.speak(onClick="speak('드ㅡ');") d
+								td.speak(onClick="speak('읃');") t
+								td #[strong d]og/cu#[strong t]
+							tr
+								td ㄸ
+								td.speak(onClick="speak('뜨ㅡ');") dd
+								td
+								td s#[strong t]ick
+							tr
+								td ㄱ
+								td.speak(onClick="speak('그ㅡ');") g
+								td.speak(onClick="speak('윽');") k
+								td #[strong g]un/slac#[strong k]
+							tr
+								td ㄲ
+								td.speak(onClick="speak('끄ㅡ');") kk
+								td
+								td s#[strong k]y
+							tr
+								td ㅅ
+								td.speak(onClick="speak('스ㅡ');") s
+								td.speak(onClick="speak('읏');") t
+								td #[strong s]pring/cu#[strong t]
+							tr
+								td ㅆ
+								td.speak(onClick="speak('쓰ㅡ');") ss
+								td.speak(onClick="speak('읐');") t
+								td #[strong s]ink/cu#[strong t]
+							tr
+								td ㄴ
+								td.speak(onClick="speak('느ㅡ');") n
+								td
+								td #[strong n]eat
+							tr
+								td ㄹ
+								td.speak(onClick="speak('르');") r
+								td.speak(onClick="speak('을');") l
+								td #[strong r]adio/unti#[strong l]
+							tr
+								td ㅁ
+								td.speak(onClick="speak('므ㅡ');") m
+								td
+								td #[strong m]other
+							tr
+								td ㅇ#[a(href="#note3") ***]
+								td 
+								td.speak(onClick="speak('응');") ng
+								td pi#[strong ng]
+							tr
+								td ㅋ
+								td.speak(onClick="speak('크ㅡ');") k
+								td
+								td #[strong k]id
+							tr
+								td ㅌ
+								td.speak(onClick="speak('트ㅡ');") t
+								td.speak(onClick="speak('읕');") t
+								td #[strong t]ee/cu#[strong t]
+							tr
+								td ㅊ
+								td.speak(onClick="speak('츠ㅡ');") ch
+								td.speak(onClick="speak('읓');") t
+								td #[strong ch]eese/cu#[strong t]
+							tr
+								td ㅍ
+								td.speak(onClick="speak('프ㅡ');") p
+								td
+								td #[strong p]ing
+							tr
+								td ㅎ
+								td.speak(onClick="speak('흐ㅡ');") h
+								td.speak(onClick="speak('읗');") t
+								td #[strong h]en/cu#[strong t]
+			ul
+				li#note1 #[em * The sound of a consonant depends on where it is in the syllable block.]
+				li#note2 #[em ** If the final column is empty, the sound of the consonant is the same as in the initial position.]
+				li#note3 #[em *** ㅇ does not have a sound in the initial position, it is simply used as a decoration.]
+
+			h4 Forms of Syllable Blocks
+			p There are four different types of syllable blocks: 
+			ul
+				li vowel
+				li vowel + consonant
+				li consonant + vowel
+				li consonant + vowel + consonant
+			table
+				thead
+					tr
+						th Type
+						th Example
+				tbody
+					tr
+						td Vowel
+						td 아, 어, 오, 우, 애, 왜
+					tr
+						td Vowel + Consonant
+						td 일, 입, 엑, 원, 앍, 앆
+					tr
+						td Consonant + Vowel
+						td 가, 터, 로, 투, 배, 화
+					tr
+						td Consonant + Vowel + Consonant
+						td 길, 눈, 빨, 된, 닭, 볶
+
+
+
 
 		include ../base/footer.pug
 		include ../base/js.pug

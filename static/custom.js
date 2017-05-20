@@ -7,7 +7,6 @@ krSpeech.onstart = function(){
 	$(".play-icon").toggleClass("stop-icon");
 };
 
-
 krSpeech.onend = function(){
 	$(".play-icon").toggleClass("stop-icon");
 };
@@ -35,7 +34,6 @@ function speak(word){
 		window.speechSynthesis.cancel();
 		return;
 	}
-	console.log();
 	window.speechSynthesis.speak(krSpeech);
 };
 

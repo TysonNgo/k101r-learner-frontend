@@ -28,6 +28,7 @@
 	}
 }
 h1, h2, h3, h4, h5, h6{
+	margin-top: 2rem;
 	color: #007dff;
 }
 html{
@@ -53,6 +54,12 @@ nav{
 }
 footer.page-footer{
 	border-top: 10px solid #000;
+}
+td.speak{
+	cursor: pointer;
+}
+strong {
+    font-weight: bold;
 }
 .page-container {
 	border: 3px solid rgba(0,125,255,0.2);
@@ -150,21 +157,28 @@ footer.page-footer{
 	margin-left: 130px;
 	width: 215px;
 }
-.play{
+.play, .play-sm{
 	position: relative;
 	display: block;
 	opacity: 0.7;
 	margin: 0 auto;
-	border: 10px solid #007dff;
-	width: 200px;
-	height: 200px;
 	border-radius: 50%;
 	background: none;
 }
-.play:hover{
+.play{
+	border: 10px solid #007dff;
+	width: 200px;
+	height: 200px;
+}
+.play-sm{
+	border: 5px solid #007dff;
+	width: 50px;
+	height: 50px;
+}
+.play:hover, .play-sm:hover{
 	opacity: 1;
 }
-.play:focus{
+.play:focus, .play-sm:focus{
 	background: none;
 }
 .play-icon, .stop-icon{
@@ -176,14 +190,25 @@ footer.page-footer{
 	width: 0;
 	height: 0;
 }
-.play-icon{
+.play .play-icon{
 	left: 15px;
 	border-top: 40px solid transparent;
 	border-bottom: 40px solid transparent;
 	border-left: 70px solid #007dff;
 }
-.stop-icon{
+.play .stop-icon{
 	border: 35px solid #007dff;
 	left: 0;
 	border-radius: 5px;
+}
+.play-sm .play-icon{
+	left: 3px;
+	border-top: 10px solid transparent;
+	border-bottom: 10px solid transparent;
+	border-left: 17px solid #007dff;
+}
+.play-sm .stop-icon{
+	border: 8px solid #007dff;
+	left: 0;
+	border-radius: 2px;
 }
