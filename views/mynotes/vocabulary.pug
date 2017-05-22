@@ -57,7 +57,7 @@ html
 				$('#'+id+' .t'+type[0]+' tbody').append('<tr><td class="speak" onClick="speak(\''+data.korean+'\')">'+data.korean+'</td><td>'+data.english+'</td></tr>');
 			};
 			for (var i=1; i<=4;i++){(function (i){
-				$.getJSON('http://api-korea101r.herokuapp.com/words?vocab_id='+i, data => {
+				$.getJSON('https://api-korea101r.herokuapp.com/words?vocab_id='+i, data => {
 					for (var j=0;j<data.length;j++){
 						appendTo('lesson'+i, data[j]);
 					}
