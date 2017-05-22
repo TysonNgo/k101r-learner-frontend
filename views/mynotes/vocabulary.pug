@@ -13,30 +13,36 @@ html
 						div.collapsible-header
 							h4 Lesson #{lesson}
 						div.collapsible-body(id="lesson"+lesson)
-							table.centered.t4
-								thead
-								tbody
-							table.centered.t32
-								thead
-								tbody
-							table.centered.t64
-								thead
-								tbody
-							table.centered.t2
-								thead
-								tbody
+							div.container
+								table.t4
+									thead
+									tbody
+								table.t16
+									thead
+									tbody
+								table.t32
+									thead
+									tbody
+								table.t64
+									thead
+									tbody
+								table.t2
+									thead
+									tbody
 
 		include ../base/footer.pug
 		include ../base/js.pug
 		script.
 			function getType(type){
-				if (type & 2)
+				if ((type & 2) == 2)
 					return [2, 'Particle'];
-				else if (type & 4)
+				else if ((type & 4) == 4)
 					return [4, 'Noun'];
-				else if (type & 32)
+				else if ((type & 16) == 16)
+					return [16, 'Noun modifier'];
+				else if ((type & 32) == 32)
 					return [32, 'Verb'];
-				else if (type & 64)
+				else if ((type & 64) == 64)
 					return [64, 'Adverb'];
 			}
 			for (var i=1; i<=4;i++){(function (i){
