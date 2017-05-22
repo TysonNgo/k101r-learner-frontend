@@ -1,0 +1,51 @@
+doctype html
+html
+	head
+		title some title
+		include ../base/head.pug
+	body
+		include ../base/nav.pug
+		
+		div.container.page-container
+			ul.collapsible(data-collapsible="expandable")
+				each lesson in [1,2,3,4]
+					li
+						div.collapsible-header
+							h4 Lesson #{lesson}
+						div.collapsible-body(id="lesson"+lesson)
+							table.centered.t4
+								thead
+								tbody
+							table.centered.t32
+								thead
+								tbody
+							table.centered.t64
+								thead
+								tbody
+							table.centered.t2
+								thead
+								tbody
+
+		include ../base/footer.pug
+		include ../base/js.pug
+		script.
+			function getType(type){
+				if (type & 2)
+					return [2, 'Particle'];
+				else if (type & 4)
+					return [4, 'Noun'];
+				else if (type & 32)
+					return [32, 'Verb'];
+				else if (type & 64)
+					return [64, 'Adverb'];
+			}
+			for (var i=1; i<=4;i++){(function (i){
+				$.getJSON('http://api-korea101r.herokuapp.com/words?vocab_id='+i, data => {
+					for (var j=0;j<data.length;j++){
+						var type = getType(data[j].type);
+						if (!$('#lesson'+i+' .t'+type[0]+' thead tr').length)
+							$('#lesson'+i+' .t'+type[0]+' thead').append('<tr><th>'+type[1]+'</th></tr>');
+						$('#lesson'+i+' .t'+type[0]+' tbody').append('<tr><td>'+data[j].korean+'</td><td>'+data[j].english+'</td></tr>')
+					}
+				});
+			})(i);}

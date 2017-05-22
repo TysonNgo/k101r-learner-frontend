@@ -5,13 +5,17 @@ html
 		include base/head.pug
 	body
 		include base/nav.pug
-		
 		div.container.page-container
 			h4 Introductory Korean Language Course Aid
-			p This is a tool used to aid with learning material for the course KOREA 101R at the Renison University College. There are several interactive exercises in this application to target specific skills. Each exercise has subsections with different sets of words. 
-			p The #[i Dictation] exercises target your listening skills. You will listen to a snippet of audio that can be repeated as many times as you wish, then type the correct word associated with the snippet.
-			p The #[i Translate] exercises are broken into two categories: English->Korean and Korean->English. In each category, you will be given a word in one language and must translate it to the other.
-			p The #[i Grammar] exercises will target your ability to conjugate verbs and use the appropriate particles. You will be given sentences containing blanks that you are to fill with the appropriate characters.
+			div.row
+				div.col.s12.l4
+					a(href="https://uwaterloo.ca/renison/korean-for-complete-beginners")
+						img(src="book.jpg",width="300px",style="display:block;margin:0 auto;")
+				div.col.s12.l8
+					p This is a tool used to aid with learning material for the course KOREA 101R at the Renison University College. The material draws from the book, #[em Dr. Kim's Korean for Complete Beginners] by Young G. Kim. There are several interactive exercises in this application to target specific skills. Each exercise has subsections with different sets of words. 
+					p The #[i Dictation] exercises target your listening skills. You will listen to a snippet of audio that can be repeated as many times as you wish, then type the correct word associated with the snippet.
+					p The #[i Translate] exercises are broken into two categories: English->Korean and Korean->English. In each category, you will be given a word in one language and must translate it to the other.
+					p The #[i Grammar] exercises will target your ability to conjugate verbs and use the appropriate particles. You will be given sentences containing blanks that you are to fill with the appropriate characters.
 
 			div.row
 				div.col.s12.l8.offset-l2
@@ -28,7 +32,7 @@ html
 			div.divider
 
 			h4 Additional Resources
-			p Over the duration of the course, I will be adding my own notes below to assist in understanding the course content.
+			p Over the duration of the course, I will be adding my own notes below to assist in understanding the course content. If you would like to contribute to my notes, feel free to make a pull request #[a(href="https://github.com/TysonNgo/k101r-learner-frontend") here].
 			div.row
 				div.col.s12.l8.offset-l2
 					ul.collection.with-header
@@ -37,10 +41,9 @@ html
 						a(href="/notes/1").collection-item
 							li Vowel/Consonants and Pronunciation
 						a(href="/notes/2").collection-item
-							li 2
+							li Grammar
 						a(href="/notes/3").collection-item
-							li 3
+							li Vocabulary
 
-		
 		include base/footer.pug
 		include base/js.pug

@@ -31,6 +31,10 @@ router.get('/notes/:id', (req, res) => {
 	switch(req.params.id){
 		case '1':
 			res.render('mynotes/pronunication');
+		case '2':
+			res.render('mynotes/grammar');
+		case '3':
+			res.render('mynotes/vocabulary');
 		default:
 			res.status(400).send('Not found');
 	}

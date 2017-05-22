@@ -7,26 +7,11 @@ krSpeech.onstart = function(){
 	$(".play-icon").toggleClass("stop-icon");
 };
 
+
 krSpeech.onend = function(){
 	$(".play-icon").toggleClass("stop-icon");
 };
 
-var hangulNames = {
-	ㄱ: "기역",
-	ㄴ: "니은",
-	ㄷ: "디근",
-	ㄹ: "리을",
-	ㅁ: "미음",
-	ㅂ: "비읍",
-	ㅅ: "시옷",
-	ㅇ: "이응",
-	ㅈ: "지읒",
-	ㅊ: "치읓",
-	ㅋ: "키읔",
-	ㅌ: "티읕",
-	ㅍ: "피읖",
-	ㅎ: "히읗"
-};
 
 function speak(word){
 	krSpeech.text = word;
