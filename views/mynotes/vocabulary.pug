@@ -14,6 +14,9 @@ html
 							h4 Lesson #{lesson}
 						div.collapsible-body(id="lesson"+lesson)
 							div.container
+								table.t8
+									thead
+									tbody
 								table.t4
 									thead
 									tbody
@@ -38,6 +41,8 @@ html
 					return [2, 'Particle'];
 				else if ((type & 4) == 4)
 					return [4, 'Noun'];
+				else if ((type & 8) == 8)
+					return [8, 'Pronoun']
 				else if ((type & 16) == 16)
 					return [16, 'Noun modifier'];
 				else if ((type & 32) == 32)
@@ -45,13 +50,16 @@ html
 				else if ((type & 64) == 64)
 					return [64, 'Adverb'];
 			}
+			function appendTo(id, data){
+				var type = getType(data.type);
+				if (!$('#'+id+' .t'+type[0]+' thead tr').length)
+					$('#'+id+' .t'+type[0]+' thead').append('<tr><th>'+type[1]+'</th></tr>');
+				$('#'+id+' .t'+type[0]+' tbody').append('<tr><td class="speak" onClick="speak(\''+data.korean+'\')">'+data.korean+'</td><td>'+data.english+'</td></tr>');
+			};
 			for (var i=1; i<=4;i++){(function (i){
 				$.getJSON('http://api-korea101r.herokuapp.com/words?vocab_id='+i, data => {
 					for (var j=0;j<data.length;j++){
-						var type = getType(data[j].type);
-						if (!$('#lesson'+i+' .t'+type[0]+' thead tr').length)
-							$('#lesson'+i+' .t'+type[0]+' thead').append('<tr><th>'+type[1]+'</th></tr>');
-						$('#lesson'+i+' .t'+type[0]+' tbody').append('<tr><td>'+data[j].korean+'</td><td>'+data[j].english+'</td></tr>')
+						appendTo('lesson'+i, data[j]);
 					}
 				});
 			})(i);}
