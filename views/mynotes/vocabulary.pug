@@ -7,31 +7,34 @@ html
 		include ../base/nav.pug
 		
 		div.container.page-container
-			ul.collapsible(data-collapsible="expandable")
-				each lesson in [1,2,3,4]
-					li
-						div.collapsible-header
-							h4 Lesson #{lesson}
-						div.collapsible-body(id="lesson"+lesson)
-							div.container
-								table.t8
-									thead
-									tbody
-								table.t4
-									thead
-									tbody
-								table.t16
-									thead
-									tbody
-								table.t32
-									thead
-									tbody
-								table.t64
-									thead
-									tbody
-								table.t2
-									thead
-									tbody
+			include ../base/loading.pug
+
+			div#content.loading
+				ul.collapsible(data-collapsible="expandable")
+					each lesson in [1,2,3,4]
+						li
+							div.collapsible-header
+								h4 Lesson #{lesson}
+							div.collapsible-body(id="lesson"+lesson)
+								div.container
+									table.t8
+										thead
+										tbody
+									table.t4
+										thead
+										tbody
+									table.t16
+										thead
+										tbody
+									table.t32
+										thead
+										tbody
+									table.t64
+										thead
+										tbody
+									table.t2
+										thead
+										tbody
 
 		include ../base/footer.pug
 		include ../base/js.pug
@@ -58,6 +61,8 @@ html
 			};
 			for (var i=1; i<=4;i++){(function (i){
 				$.getJSON('https://api-korea101r.herokuapp.com/words?vocab_id='+i, data => {
+					loadContent();
+
 					for (var j=0;j<data.length;j++){
 						appendTo('lesson'+i, data[j]);
 					}

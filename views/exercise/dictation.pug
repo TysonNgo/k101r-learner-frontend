@@ -1,0 +1,25 @@
+doctype html
+html
+	head
+		title KOREA 101R - Dictation ##{id}
+		include ../base/head.pug
+	body
+		include ../base/nav.pug
+
+		div.container.page-container
+			include ../base/loading.pug
+
+			div#content.loading
+				button.play
+					div.play-icon
+
+		include ../base/footer.pug
+		include ../base/js.pug
+		script.
+			$.getJSON('https://api-korea101r.herokuapp.com/words?vocab_id='+#{id}, data => {
+				loadContent();
+
+				var words = data;
+				shuffle(words);
+				words.forEach(a=>{console.log(a.korean);});
+			})

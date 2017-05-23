@@ -3,6 +3,22 @@ var krSpeech = new SpeechSynthesisUtterance();
 krSpeech.lang = "ko-KR";
 
 
+function shuffle(arr){
+	for (var i=0;i<arr.length;i++){
+		var swapIndex = Math.floor(Math.random()*(arr.length-i)+i);
+		var temp = arr[i];
+		arr[i] = arr[swapIndex];
+		arr[swapIndex] = temp;
+	}
+};
+
+
+function loadContent(){
+	$('#loading').remove();
+	$('#content').removeClass('loading');
+};
+
+
 krSpeech.onstart = function(){
 	$(".play-icon").toggleClass("stop-icon");
 };

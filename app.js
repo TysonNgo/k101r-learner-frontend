@@ -40,6 +40,12 @@ router.get('/notes/:id', (req, res) => {
 	}
 });
 
+router.get('/exercise/dictation/:id', (req,res) => {
+	res.render('exercise/dictation', {
+		id:req.params.id
+	});
+});
+
 app.use('/', router);
 app.listen(port);
 

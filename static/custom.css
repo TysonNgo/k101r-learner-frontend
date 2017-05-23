@@ -215,3 +215,10 @@ img {
 	left: 0;
 	border-radius: 2px;
 }
+.preloader-wrapper.big{
+	width: 125px;
+	height: 125px;
+}
+.loading{
+	display: none;
+}
