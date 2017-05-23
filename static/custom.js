@@ -13,6 +13,12 @@ function shuffle(arr){
 };
 
 
+function setDictationWord(word){
+	$('button.play').click(()=>{speak(word);});
+	speak(word);
+}
+
+
 function loadContent(){
 	$('#loading').remove();
 	$('#content').removeClass('loading');
@@ -37,6 +43,7 @@ function speak(word){
 	}
 	window.speechSynthesis.speak(krSpeech);
 };
+
 
 function Keyboard(){
 	var keys = {
@@ -181,6 +188,7 @@ function Keyboard(){
 	}
 }
 
+
 function typeKey(event){
 	if (keyboard.isKoreanLayout){
 		var char = keyboard.getKey(event.which);
@@ -233,13 +241,8 @@ function backspace(event){
 
 $("#textbox").keypress(function(e){
 	typeKey(e);
-
-	var a = $("#deletethis").text();
-		if (this.value.startsWith(a)){
-			window.speechSynthesis.speak(new SpeechSynthesisUtterance("correct!"));
-			return;
-		}
 });
+
 
 $("#textbox").keyup(function(e){
 	if (e.which == 8)
@@ -248,21 +251,16 @@ $("#textbox").keyup(function(e){
 		keyboard.clearStack();}
 });
 
+
 $("input, textarea").bind("click focus", function(e){
 	keyboard.clearStack();
 });
+
 
 $(".keyboard").click(function(e){
 	e.preventDefault();
 	$("#textbox").focus();
 });
-
-/*
-$(".key").mousedown(function (e){
-	e.which = /k_(\d+)/.exec(this.id)[1];
-	typeKey(e);
-});
-*/
 
 
 $("body").keydown(function(e){
@@ -278,3 +276,7 @@ $("body").keyup(function(e){
 $(".minimize").click(function(){
 	$(".keyboard").toggleClass("minimize");
 });
+
+$("#again").click(function(){
+	location.reload();
+})

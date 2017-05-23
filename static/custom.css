@@ -222,3 +222,6 @@ img {
 .loading{
 	display: none;
 }
+.clear{
+	clear:both;
+}

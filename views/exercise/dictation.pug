@@ -10,16 +10,62 @@ html
 			include ../base/loading.pug
 
 			div#content.loading
+				h4 Dictation #{id}
+
 				button.play
 					div.play-icon
+
+				div.input-field
+					textarea#textbox.materialize-textarea.center(placeholder="Enter text here")
+
+				include ../base/keyboard.pug
 
 		include ../base/footer.pug
 		include ../base/js.pug
 		script.
+			var words;
+			var userWords;
+			var wordIndex = 0;
 			$.getJSON('https://api-korea101r.herokuapp.com/words?vocab_id='+#{id}, data => {
 				loadContent();
 
-				var words = data;
+				words = data.filter(w => {return ((w.type & 2) != 2) && ((w.type & 16) != 16)});
+				userWords = Array(words.length);
 				shuffle(words);
-				words.forEach(a=>{console.log(a.korean);});
+				setDictationWord(words[0].korean);
+				$('#textbox').focus();
 			})
+			$("#textbox").keypress(function(e){
+				if (e.which == 13){
+					userWords[wordIndex] = this.value.slice(0,this.value.length-1);
+					this.value = '';
+					wordIndex += 1;
+					if (wordIndex >= words.length){
+						var correct = 0;
+
+						var results = '<h4>Results</h4>';
+						$('#content').empty();
+						results += '<table><thead><tr><th>Your word</th><th>Actual word</th></tr></thead><tbody>';
+						for (var i=0;i<words.length;i++){
+							results += '<tr><td>'+userWords[i]+'</td><td>'+words[i].korean+'</td>';
+							console.log(words[i].korean == userWords[i]);
+							console.log(words[i].korean);
+							console.log(userWords[i]);
+							if (words[i].korean == userWords[i]){
+								correct += 1;
+								results += '<td>√</td>';
+							} else{
+								results += '<td></td>';
+							}
+							results += '</tr>';
+						}
+						results += '<tr><td>Total correct</td><td></td><td>'+correct+'/'+words.length+'</td></tr>'
+						results += '</tbody></table>';
+						results += '<button onClick="location.reload();" style="margin:1em 0;" class="btn blue right">Try Again?</button><div class="clear"></div>';
+						$('#content').append(results);
+						return;
+					}
+					setDictationWord(words[wordIndex].korean);
+					e.preventDefault();
+				}
+			});
