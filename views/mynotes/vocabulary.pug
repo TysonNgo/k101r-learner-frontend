@@ -11,11 +11,11 @@ html
 
 			div#content.loading
 				ul.collapsible(data-collapsible="expandable")
-					each lesson in [1,2,3,4]
+					each lesson in vocabulary
 						li
 							div.collapsible-header
-								h4 Lesson #{lesson}
-							div.collapsible-body(id="lesson"+lesson)
+								h4 #{lesson.title}
+							div.collapsible-body(id="vocab"+lesson.id)
 								div.container
 									table.t8
 										thead
@@ -35,12 +35,17 @@ html
 									table.t2
 										thead
 										tbody
+									table.t1
+										thead
+										tbody
 
 		include ../base/footer.pug
 		include ../base/js.pug
 		script.
 			function getType(type){
-				if ((type & 2) == 2)
+				if ((type & 1) == 1)
+					return [1, 'Hangul']
+				else if ((type & 2) == 2)
 					return [2, 'Particle'];
 				else if ((type & 4) == 4)
 					return [4, 'Noun'];
@@ -59,12 +64,13 @@ html
 					$('#'+id+' .t'+type[0]+' thead').append('<tr><th>'+type[1]+'</th></tr>');
 				$('#'+id+' .t'+type[0]+' tbody').append('<tr><td class="speak" onClick="speak(\''+data.korean+'\')">'+data.korean+'</td><td>'+data.english+'</td></tr>');
 			};
-			for (var i=1; i<=4;i++){(function (i){
-				$.getJSON('https://api-korea101r.herokuapp.com/words?vocab_id='+i, data => {
+			vocabIDs = [1,2,3,4]
+			for (var i=0; i<5;i++){(function (i){
+				$.getJSON('https://api-korea101r.herokuapp.com/words?vocab_id='+vocabIDs[i], data => {
 					loadContent();
 
 					for (var j=0;j<data.length;j++){
-						appendTo('lesson'+i, data[j]);
+						appendTo('vocab'+vocabIDs[i], data[j]);
 					}
 				});
 			})(i);}

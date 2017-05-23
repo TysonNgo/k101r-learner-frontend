@@ -49,7 +49,14 @@ router.get('/notes/:id', (req, res) => {
 		case '2':
 			res.render('mynotes/grammar');
 		case '3':
-			res.render('mynotes/vocabulary');
+			res.render('mynotes/vocabulary',{
+				vocabulary: [
+					{id:1, title: 'Lesson 1'},
+					{id:2, title: 'Lesson 2'},
+					{id:3, title: 'Lesson 3'},
+					{id:4, title: 'Lesson 4'}
+				]
+			});
 		default:
 			res.status(400).send('Not found');
 	}
