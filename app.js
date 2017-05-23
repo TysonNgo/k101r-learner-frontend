@@ -17,13 +17,28 @@ router.get('/', (req, res) => {
 router.get('/exercise/:exercise', (req, res) => {
 	switch (req.params.exercise.toLowerCase()){
 		case 'dictation':
+			var exercises = [
+				{id:1, title: 'Lesson 1'},
+				{id:2, title: 'Lesson 2'},
+				{id:3, title: 'Lesson 3'},
+				{id:4, title: 'Lesson 4'}
+			]; break;
 		case 'translate':
-		case 'grammar': break;
+			var exercises = [
+				{id:1, title: 'Lesson 1'}
+			];
+			break;
+		case 'grammar': 
+			var exercises = [
+				{id:1, title: 'Lesson 1'}
+			];
+			break;
 		default:
 			res.status(400).send('Not found');
 	}
 	res.render('exercise/index', {
-		category:req.params.exercise
+		category:req.params.exercise,
+		exercises: exercises
 	});
 });
 

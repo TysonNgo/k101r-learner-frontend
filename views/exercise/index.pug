@@ -15,8 +15,9 @@ html
 					ul.collection.with-header
 						li.collection-header
 							h5 Exercises
-						a(href=category.toLowerCase()+"/1").collection-item 
-							li 1
+						each exercise in exercises
+							a(href=category.toLowerCase()+"/"+exercise.id).collection-item 
+								li #{exercise.title}
 
 		include ../base/footer.pug
 		include ../base/js.pug
