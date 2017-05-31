@@ -57,6 +57,8 @@ router.get('/notes/:id', (req, res) => {
 					{id:4, title: 'Lesson 4'}
 				]
 			});
+		case '4':
+			res.render('mynotes/numbers');
 		default:
 			res.status(400).send('Not found');
 	}

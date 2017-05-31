@@ -1,0 +1,115 @@
+doctype html
+html
+	head
+		title some title
+		include ../base/head.pug
+	body
+		include ../base/nav.pug
+		
+		div.container.page-container
+			
+			h4 Numbers
+			p Sino-Korea numbers are numbers "borrowed" from the Chinese language. Depending on what is being referenced, either the Sino-Korean numbers or Korean numbers are used. For example, when telling time, The hour is expressed in Korean numbers, and the minutes are expressed in Sino-Korean numbers
+
+			pre 3:35   ->   3시 35분   ->   세시 삼십오분
+			
+			table
+				thead
+					tr
+						th Number
+						th Sino-Korean
+						th Korean
+				tbody
+					tr
+						td 1
+						td 일
+						td 하나 (한)
+					tr
+						td 2
+						td 이
+						td 둘 (두)
+					tr
+						td 3
+						td 삼
+						td 셋 (세)
+					tr
+						td 4
+						td 사
+						td 넷 (네)
+					tr
+						td 5
+						td 오
+						td 다섯
+					tr
+						td 6
+						td 육
+						td 여섯
+					tr
+						td 7
+						td 칠
+						td 일곱
+					tr
+						td 8
+						td 팔
+						td 여덟
+					tr
+						td 9
+						td 구
+						td 아홉
+					tr
+						td 10
+						td 십
+						td 열
+					tr
+						td 11
+						td 십일
+						td 열하나 (한)
+					tr
+						td 12
+						td 십이
+						td 열둘 (두)
+					tr
+						td 13
+						td 십삼
+						td 열셋 (세)
+					tr
+						td 14
+						td 십사
+						td 열넷 (네)
+					tr
+						td 15
+						td 십오
+						td 열다섯
+					tr
+						td 16
+						td 십육
+						td 열여섯
+					tr
+						td 17
+						td 십칠
+						td 열일곱
+					tr
+						td 18
+						td 십팔
+						td 열여덟
+					tr
+						td 19
+						td 십구
+						td 열아홉
+					tr
+						td 20
+						td 이십
+						td 스물
+
+			div.divider
+			p When Korean numbers 1-4 (하나, 둘, 셋, 넷) are used in combination with other words, they are altered slight. 
+
+			pre.
+				하나 -> 한 ; 한 남자
+				둘 -> 두 ; 두 사람
+				셋 -> 세 ; 세 마리
+				넷 -> 네 ; 네 개
+
+
+		include ../base/footer.pug
+		include ../base/js.pug
