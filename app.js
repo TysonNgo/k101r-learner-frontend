@@ -22,7 +22,12 @@ router.get('/exercise/:exercise', (req, res) => {
 				{id:2, title: 'Lesson 2'},
 				{id:3, title: 'Lesson 3'},
 				{id:4, title: 'Lesson 4'},
-				{id:5, title: 'Lesson 5'}
+				{id:5, title: 'Lesson 5'},
+				{id:5, title: 'Lesson 6'},
+				{id:5, title: 'Lesson 7'},
+				{id:5, title: 'Lesson 8'},
+				{id:5, title: 'Lesson 9'},
+				{id:5, title: 'Lesson 10'}
 			]; break;
 		case 'translate':
 			var exercises = [
@@ -56,7 +61,12 @@ router.get('/notes/:id', (req, res) => {
 					{id:2, title: 'Lesson 2'},
 					{id:3, title: 'Lesson 3'},
 					{id:4, title: 'Lesson 4'},
-					{id:5, title: 'Lesson 5'}
+					{id:5, title: 'Lesson 5'},
+					{id:5, title: 'Lesson 6'},
+					{id:5, title: 'Lesson 7'},
+					{id:5, title: 'Lesson 8'},
+					{id:5, title: 'Lesson 9'},
+					{id:5, title: 'Lesson 10'}
 				]
 			});
 		case '4':
