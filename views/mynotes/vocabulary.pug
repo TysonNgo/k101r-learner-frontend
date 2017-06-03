@@ -64,7 +64,7 @@ html
 					$('#'+id+' .t'+type[0]+' thead').append('<tr><th>'+type[1]+'</th></tr>');
 				$('#'+id+' .t'+type[0]+' tbody').append('<tr><td class="speak" onClick="speak(\''+data.korean+'\')">'+data.korean+'</td><td>'+data.english+'</td></tr>');
 			};
-			vocabIDs = [1,2,3,4]
+			vocabIDs = [1,2,3,4,5]
 			for (var i=0; i<5;i++){(function (i){
 				$.getJSON('https://api-korea101r.herokuapp.com/words?vocab_id='+vocabIDs[i], data => {
 					loadContent();
